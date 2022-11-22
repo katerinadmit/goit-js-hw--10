@@ -1,16 +1,14 @@
-const BASE_URL = 'https://restcountries.com';
+const BASE_URL = 'https://restcountries.com/v3.1/name/';
 
-const fetchCountries = countryName => {
+function fetchCountries(name) {
   return fetch(
-    `${BASE_URL}/v3.1/name/${countryName}?fields=name,capital,population,flags,languages `
-  ).then(responce => {
-    if (responce.status === 404) {
-      return Promise.reject(
-        new Error(`There is no country with that name`)
-      );
+    `${BASE_URL}${name}?fields=name,capital,population,flags,languages`
+  ).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
     }
-    return responce.json();
+    return response.json();
   });
-};
+}
 
 export { fetchCountries };

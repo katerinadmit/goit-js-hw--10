@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://katerinadmit.github.io/goit-js-hw--10",
   "scripts": {
-    "start": "parcel src/*.html --port 5555",
+    "start": "parcel src/*.html --port 5656",
     "build": "parcel build src/*.html --public-url /goit-js-hw--10/"
   },
   "repository": {
